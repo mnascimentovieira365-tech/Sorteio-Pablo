@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>VALIDAÇÃO OFICIAL - SORTEIO PABLO | SÃO BENTO/PB</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100vw;height:100vh;overflow:hidden;position:fixed;font-family:'Segoe UI','Roboto',Arial,sans-serif;}
+.tela-login{width:100%;height:100%;background:linear-gradient(180deg,#1565C0,#1976D2,#1E88E5);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:25px 20px;text-align:center;}
+.selo-superior{margin-top:15px;margin-bottom:30px;background:rgba(255,255,255,0.2);padding:12px 28px;border-radius:25px;display:flex;align-items:center;gap:10px;color:#fff;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,0.4);}
+.foto-pablo{width:230px;height:230px;border-radius:50%;border:7px solid #fff;margin-bottom:25px;box-shadow:0 0 50px rgba(255,255,255,0.5);background:url('https://i.imgur.com/LSdXzZQ.png') center/cover no-repeat;background-color:#000;}
+.titulo-login{font-size:34px;font-weight:900;color:#fff;margin-bottom:10px;text-shadow:2px 2px 8px rgba(0,0,0,0.4);}
+.subtitulo-login{font-size:19px;color:rgba(255,255,255,0.95);margin-bottom:40px;}
+.form-login{width:100%;max-width:400px;display:flex;flex-direction:column;gap:20px;margin-bottom:35px;}
+.campo-entrada{padding:20px 25px;border:2px solid rgba(255,255,255,0.6);border-radius:15px;background:rgba(255,255,255,0.18);color:#fff;font-size:18px;outline:none;}
+.campo-entrada::placeholder{color:rgba(255,255,255,0.75);}
+.botao-entrar{padding:22px;background:#D32F2F;color:#fff;font-size:23px;font-weight:900;border:none;border-radius:15px;box-shadow:0 8px 25px rgba(211,47,47,0.5);cursor:pointer;}
+.aviso-rodape{font-size:15px;color:rgba(255,255,255,0.9);margin-top:15px;}
+.tela-verificacao{display:none;width:100%;height:100%;background:#000714;color:#00FF9D;font-family:"Courier New",Consolas,monospace;font-size:15px;padding:20px;flex-direction:column;position:fixed;top:0;left:0;z-index:999999;}
+.cabecalho-sistema{color:#FF5252;font-weight:bold;font-size:18px;margin-bottom:15px;border-bottom:1px solid #00FF9D;padding-bottom:12px;text-transform:uppercase;}
+.dados-completos{background:rgba(0,45,25,0.3);padding:15px;border-radius:8px;margin-bottom:18px;font-size:14px;line-height:1.8;border:1px solid rgba(0,255,157,0.25);}
+.destaque{color:#FFEB3B;font-weight:bold;}
+.alerta-critico{color:#FF5252;font-size:14px;font-weight:bold;text-align:center;margin-bottom:15px;animation:piscar 0.5s infinite;padding:10px;border-radius:8px;background:rgba(255,82,82,0.1);}
+@keyframes piscar{50%{opacity:0.2;}}
+.barras-progresso{display:flex;flex-direction:column;gap:12px;margin:18px 0;}
+.container-barra{width:100%;height:22px;background:#121212;border:1px solid #00FF9D;border-radius:5px;overflow:hidden;}
+.barra{height:100%;width:0%;background:linear-gradient(90deg,#00FF9D,#00BFA5);transition:width 0.15s linear;}
+.area-logs{white-space:pre-wrap;flex:1;overflow:hidden;margin-bottom:15px;font-size:13px;}
+.tela-video{display:none;width:100%;height:100%;background:#000;flex-direction:column;align-items:center;justify-content:center;position:fixed;top:0;left:0;z-index:9999999;padding:25px 20px;text-align:center;}
+.video-final{width:95%;max-width:420px;border-radius:15px;margin-bottom:25px;border:3px solid #FFC107;}
+.texto-final{color:#FFC107;font-size:32px;font-weight:900;margin-bottom:15px;text-shadow:0 0 20px #FFC107;}
+.texto-nome{color:#FFF;font-size:24px;margin-bottom:20px;}
+.texto-criador{color:#00FF9D;font-size:18px;margin-top:25px;font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="tela-login" id="login">
+  <div class="selo-superior"><span>✅</span> SISTEMA AUTORIZADO | PREFEITURA DE SÃO BENTO/PB</div>
+  <div class="foto-pablo"></div>
+  <h1 class="titulo-login">ACESSO AO SORTEIO</h1>
+  <p class="subtitulo-login">Pulseira Camarote VIP - Show do Pablo 15/08</p>
+  <div class="form-login">
+    <input type="text" class="campo-entrada" id="campo-nome" placeholder="Digite seu nome completo">
+    <input type="email" class="campo-entrada" id="campo-email" placeholder="Digite seu melhor e-mail">
+    <button class="botao-entrar" id="btn-acessar">INICIAR VALIDAÇÃO AGORA</button>
+  </div>
+  <p class="aviso-rodape">*Dados protegidos • Apenas moradores locais • Resultado imediato</p>
+</div>
+<div class="tela-verificacao" id="verif">
+  <div class="cabecalho-sistema">SISTEMA DE VALIDAÇÃO E SEGURANÇA OFICIAL</div>
+  <div class="alerta-critico">⚠️ NÃO FECHE, NÃO VOLTE — PROCESSO IRREVERSÍVEL!</div>
+  <div class="dados-completos" id="dados"></div>
+  <div class="area-logs" id="logs"></div>
+  <div class="barras-progresso">
+    <div class="container-barra"><div class="barra" id="barra-principal"></div></div>
+    <div class="container-barra"><div class="barra" id="barra-secundaria"></div></div>
+  </div>
+</div>
+<div class="tela-video" id="final">
+  <h2 class="texto-final">🤣 VOCÊ CAIU NA PEGADINHA! 🤣</h2>
+  <p class="texto-nome">E aí, <span id="nome-video"></span>?! Pensou que ia ganhar mesmo?</p>
+  <video class="video-final" controls autoplay muted playsinline>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  </video>
+  <p class="texto-criador">Feito por: @Marcos-Hackes 😈🔥</p>
+</div>
+<script>
+document.addEventListener('contextmenu', e=>e.preventDefault());
+document.addEventListener('keydown', e=>{if(['Escape','F5','Backspace','Alt','Tab','F12'].includes(e.key)) e.preventDefault();});
+history.pushState(null,null,location.href);window.onpopstate=()=>history.pushState(null,null,location.href);
 
+const btnAcessar = document.getElementById('btn-acessar');
+const telaLogin = document.getElementById('login');
+const telaVerif = document.getElementById('verif');
+const telaFinal = document.getElementById('final');
+const campoNome = document.getElementById('campo-nome');
+const campoEmail = document.getElementById('campo-email');
+const dados = document.getElementById('dados');
+const logs = document.getElementById('logs');
+const barraP = document.getElementById('barra-principal');
+const barraS = document.getElementById('barra-secundaria');
+const nomeVideo = document.getElementById('nome-video');
+
+btnAcessar.addEventListener('click', ()=>{
+  const nomeDigitado = campoNome.value.trim() || 'USUÁRIO';
+  const emailDigitado = campoEmail.value.trim() || 'SEM EMAIL';
+  telaLogin.style.display='none';telaVerif.style.display='flex';
+
+  const agora = new Date();
+  dados.innerHTML = `DATA: ${agora.toLocaleDateString('pt-BR')} | HORA: ${agora.toLocaleTimeString('pt-BR')}<br>IP: 177.128.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}<br>LOCAL: SÃO BENTO - PB<br>NOME: <b>${nomeDigitado}</b><br>EMAIL: <b>${emailDigitado}</b>`;
+  nomeVideo.textContent = nomeDigitado;
+
+  const processos = [];
+  for(let i=1;i<=1600;i++) processos.push(`[${i}/1600] VALIDANDO ${nomeDigitado}... OK`);
+  processos.push('','FINALIZANDO...');
+
+  let i=0,j=0,texto='';
+  function rodar(){
+    if(i>=processos.length){barraP.style.width='100%';barraS.style.width='100%';setTimeout(()=>{telaVerif.style.display='none';telaFinal.style.display='flex';},2000);return;}
+    if(j<processos[i].length){texto+=processos[i][j];logs.innerText=texto;j++;setTimeout(rodar,8);}
+    else{texto+='\n';logs.innerText=texto;barraP.style.width=Math.round((i/processos.length)*100)+'%';barraS.style.width=Math.round((i/processos.length)*88)+'%';i++;j=0;setTimeout(rodar,70);}
+  }
+  rodar();
+});
+</script>
+</body>
+</html>
