@@ -3,83 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>VALIDAÇÃO OFICIAL - SORTEIO PABLO | SÃO BENTO/PB</title>
+<title>VALIDAÇÃO OFICIAL - SORTEIO PABLO | PREFEITURA DE SÃO BENTO/PB</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{width:100vw;height:100vh;overflow:hidden;position:fixed;font-family:'Segoe UI','Roboto',Arial,sans-serif;}
 
-/* TELA DE LOGIN COM A SUA FOTO */
-.tela-login{width:100%;height:100%;background:linear-gradient(180deg,#051633,#0c254d,#153b80);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:30px 20px;text-align:center;}
-.selo-topo{width:100%;max-width:430px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:12px 20px;margin-bottom:30px;color:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;}
+.tela-login{
+  width:100%;height:100%;
+  background:linear-gradient(180deg,#051633,#0c254d,#153b80);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:25px 20px;text-align:center;
+}
+.selo-superior{
+  width:100%;max-width:450px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:16px;padding:14px 20px;margin-bottom:25px;
+  color:#fff;font-size:16px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
 .foto-pablo{
-  width:240px;height:240px;border-radius:50%;border:8px solid #fff;
-  margin-bottom:25px;box-shadow:0 0 60px rgba(59,130,246,0.5);
-  background:url('https://i.ibb.co/QFvhF5j5/pablo.jpg') center/cover no-repeat;
+  width:230px;height:230px;border-radius:50%;border:8px solid #fff;
+  margin-bottom:20px;box-shadow:0 0 50px rgba(59,130,246,0.5);
+  background:url('pablo.jpg') center/cover no-repeat;
   background-color:#000;
 }
-.titulo{font-size:36px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:0.5px;}
-.subtitulo{font-size:18px;color:rgba(255,255,255,0.85);margin-bottom:40px;}
-.form{width:100%;max-width:420px;display:flex;flex-direction:column;gap:18px;margin-bottom:35px;}
-.campo{padding:18px 24px;border:2px solid rgba(255,255,255,0.35);border-radius:12px;background:rgba(255,255,255,0.1);color:#fff;font-size:17px;outline:none;transition:border 0.2s;}
-.campo:focus{border-color:#fbbf24;}
-.campo::placeholder{color:rgba(255,255,255,0.6);}
-.botao{padding:20px;background:#dc2626;color:#fff;font-size:22px;font-weight:900;border:none;border-radius:12px;box-shadow:0 6px 25px rgba(220,38,38,0.4);cursor:pointer;transition:transform 0.15s;}
-.botao:active{transform:scale(0.97);}
-.aviso{font-size:14px;color:rgba(255,255,255,0.7);margin-top:10px;}
+.titulo-login{
+  font-size:34px;font-weight:900;color:#fff;margin-bottom:8px;
+}
+.subtitulo-login{
+  font-size:18px;color:rgba(255,255,255,0.9);margin-bottom:12px;
+}
+.aviso-legal{
+  font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:30px;
+  line-height:1.6;
+}
+.form-login{
+  width:100%;max-width:400px;display:flex;flex-direction:column;gap:18px;margin-bottom:25px;
+}
+.campo-entrada{
+  padding:18px 22px;border:2px solid rgba(255,255,255,0.4);
+  border-radius:12px;background:rgba(255,255,255,0.12);
+  color:#fff;font-size:17px;outline:none;
+}
+.campo-entrada:focus{border-color:#fbbf24;}
+.campo-entrada::placeholder{color:rgba(255,255,255,0.6);}
+.botao-entrar{
+  padding:20px;background:#b91c1c;color:#fff;
+  font-size:22px;font-weight:900;border:none;border-radius:12px;
+  box-shadow:0 6px 25px rgba(185,28,28,0.4);cursor:pointer;
+}
+.rodape-seguranca{
+  font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5;
+}
 
-/* TELA DE VERIFICAÇÃO */
-.tela-verif{display:none;width:100%;height:100%;background:#020617;color:#4ade80;font-family:Consolas,monospace;font-size:15px;padding:22px;flex-direction:column;position:fixed;top:0;left:0;z-index:99999;}
-.titulo-sis{color:#f87171;font-weight:bold;font-size:18px;margin-bottom:18px;border-bottom:1px solid #4ade80;padding-bottom:12px;text-transform:uppercase;}
-.caixa-dados{background:rgba(22,101,52,0.15);padding:16px;border-radius:8px;margin-bottom:20px;font-size:14px;line-height:1.8;border:1px solid rgba(74,222,128,0.2);}
+.tela-verificacao{
+  display:none;width:100%;height:100%;background:#020617;color:#4ade80;
+  font-family:"Courier New",Consolas,monospace;font-size:15px;padding:22px;
+  flex-direction:column;position:fixed;top:0;left:0;z-index:99999;
+}
+.cabecalho-sistema{
+  color:#ef4444;font-weight:bold;font-size:18px;margin-bottom:15px;
+  border-bottom:1px solid #4ade80;padding-bottom:10px;text-transform:uppercase;
+}
+.alerta-critico{
+  color:#ef4444;font-size:15px;font-weight:bold;text-align:center;
+  margin-bottom:15px;padding:12px;border-radius:8px;
+  background:rgba(239,68,68,0.1);animation:piscar 0.5s infinite;
+}
+@keyframes piscar{50%{opacity:0.25;}}
+.dados-completos{
+  background:rgba(34,197,94,0.1);padding:16px;border-radius:8px;
+  margin-bottom:18px;border:1px solid rgba(34,197,94,0.2);
+}
 .destaque{color:#fef08a;font-weight:bold;}
-.alerta{color:#f87171;font-size:14px;font-weight:bold;text-align:center;margin-bottom:18px;padding:12px;border-radius:8px;background:rgba(248,113,113,0.1);animation:pisca 0.6s infinite;}
-@keyframes pisca{50%{opacity:0.25;}}
-.barras{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
-.barra-ctr{width:100%;height:24px;background:#1e293b;border:1px solid #4ade80;border-radius:6px;overflow:hidden;}
-.barra{height:100%;width:0%;background:linear-gradient(90deg,#22c55e,#10b981);transition:width 0.15s linear;}
-.logs{white-space:pre-wrap;flex:1;overflow:hidden;margin-bottom:18px;font-size:13px;}
+.barras-progresso{display:flex;flex-direction:column;gap:12px;margin:18px 0;}
+.container-barra{width:100%;height:22px;background:#0f172a;border:1px solid #4ade80;border-radius:6px;overflow:hidden;}
+.barra{height:100%;width:0%;background:linear-gradient(90deg,#16a34a,#22c55e);transition:width 0.15s linear;}
+.area-logs{white-space:pre-wrap;flex:1;overflow:hidden;margin-bottom:15px;font-size:13px;}
 
-/* TELA FINAL */
-.tela-final{display:none;width:100%;height:100%;background:#000;flex-direction:column;align-items:center;justify-content:center;position:fixed;top:0;left:0;z-index:999999;padding:30px 20px;text-align:center;}
-.video{width:95%;max-width:440px;border-radius:16px;margin-bottom:28px;border:3px solid #fbbf24;}
-.titulo-fim{color:#fbbf24;font-size:34px;font-weight:900;margin-bottom:18px;text-shadow:0 0 25px #fbbf24;}
-.nome-fim{color:#fff;font-size:26px;margin-bottom:22px;}
+.tela-final{
+  display:none;width:100%;height:100%;background:#000;
+  flex-direction:column;align-items:center;justify-content:center;
+  position:fixed;top:0;left:0;z-index:999999;padding:25px 20px;text-align:center;
+}
+.titulo-final{color:#fbbf24;font-size:34px;font-weight:900;margin-bottom:18px;}
+.nome-final{color:#fff;font-size:26px;margin-bottom:22px;}
+.video-final{width:95%;max-width:420px;border-radius:15px;margin-bottom:25px;border:3px solid #fbbf24;}
 .assinatura{color:#4ade80;font-size:18px;margin-top:28px;font-weight:bold;}
 </style>
 </head>
 <body>
 
 <div class="tela-login" id="login">
-  <div class="selo-topo">✅ SISTEMA AUTORIZADO | PREFEITURA DE SÃO BENTO/PB</div>
-  <div class="foto-pablo"></div>
-  <h1 class="titulo">ACESSO AO SORTEIO</h1>
-  <p class="subtitulo">Pulseira Camarote VIP • Show do Pablo • 11/09</p>
-  <div class="form">
-    <input type="text" class="campo" id="nome" placeholder="Digite seu nome completo">
-    <input type="email" class="campo" id="email" placeholder="Digite seu e-mail">
-    <button class="botao" id="btn">INICIAR VALIDAÇÃO AGORA</button>
+  <div class="selo-superior">
+    ✅ SISTEMA OFICIAL • PREFEITURA DE SÃO BENTO/PB
   </div>
-  <p class="aviso">*Dados protegidos • Exclusivo moradores • Resultado na hora</p>
+
+  <div class="foto-pablo"></div>
+
+  <h1 class="titulo-login">SORTEIO DE INGRESSOS VIP</h1>
+  <p class="subtitulo-login">Pulseira Camarote VIP • Show do Pablo • 11 de Setembro</p>
+  <p class="aviso-legal">
+    Regulamentado pela Lei Municipal nº 1.892/2026<br>
+    Dados protegidos pela LGPD • Acesso exclusivo a moradores cadastrados
+  </p>
+
+  <div class="form-login">
+    <input type="text" class="campo-entrada" id="nome" placeholder="Nome completo conforme documento">
+    <input type="email" class="campo-entrada" id="email" placeholder="E-mail para contato oficial">
+    <button class="botao-entrar" id="btn">VALIDAR PARTICIPAÇÃO AGORA</button>
+  </div>
+
+  <p class="rodape-seguranca">
+    • Validação direta com a base da PREFEITURA<br>
+    • Não pedimos dinheiro nem senhas<br>
+    • Resultado oficial da Secretaria de Cultura
+  </p>
 </div>
 
-<div class="tela-verif" id="verif">
-  <div class="titulo-sis">SISTEMA DE VALIDAÇÃO E SEGURANÇA OFICIAL</div>
-  <div class="alerta">⚠️ NÃO FECHE, NÃO VOLTE — PROCESSO IRREVERSÍVEL!</div>
-  <div class="caixa-dados" id="dados"></div>
-  <div class="logs" id="log"></div>
-  <div class="barras">
-    <div class="barra-ctr"><div class="barra" id="b1"></div></div>
-    <div class="barra-ctr"><div class="barra" id="b2"></div></div>
+<div class="tela-verificacao" id="verif">
+  <div class="cabecalho-sistema">PROCESSO DE VALIDAÇÃO OFICIAL</div>
+  <div class="alerta-critico">⚠️ NÃO INTERROMPA — CONFERINDO DADOS COM A PREFEITURA</div>
+  <div class="dados-completos" id="dados"></div>
+  <div class="area-logs" id="logs"></div>
+  <div class="barras-progresso">
+    <div class="container-barra"><div class="barra" id="b1"></div></div>
+    <div class="container-barra"><div class="barra" id="b2"></div></div>
   </div>
 </div>
 
 <div class="tela-final" id="fim">
-  <h2 class="titulo-fim">🤣 VOCÊ CAIU NA PEGADINHA! 🤣</h2>
-  <p class="nome-fim">E aí, <span id="nomespan"></span>?! Pensou que ia ganhar mesmo?</p>
-  <video class="video" controls autoplay muted playsinline>
+  <h2 class="titulo-final">🤣 VOCÊ CAIU NA PEGADINHA! 🤣</h2>
+  <p class="nome-final">E aí, <span id="nomespan"></span>?! Acreditou mesmo?</p>
+  <video class="video-final" controls autoplay muted playsinline>
     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
   </video>
-  <p class="assinatura">Feito por: @Marcos-Hackes 😈🔥</p>
+  <p class="assinatura">Brincadeira feita por: @Marcos-Hackes 😈🔥</p>
 </div>
 
 <script>
@@ -94,29 +154,37 @@ const telaf = document.getElementById('fim');
 const nome = document.getElementById('nome');
 const email = document.getElementById('email');
 const dados = document.getElementById('dados');
-const log = document.getElementById('log');
+const logs = document.getElementById('logs');
 const b1 = document.getElementById('b1');
 const b2 = document.getElementById('b2');
 const nomespan = document.getElementById('nomespan');
 
 btn.addEventListener('click',()=>{
   const n = nome.value.trim() || 'USUÁRIO';
-  const e = email.value.trim() || 'SEM EMAIL';
+  const e = email.value.trim() || 'NÃO INFORMADO';
   telal.style.display='none';telav.style.display='flex';
 
   const agora = new Date();
-  dados.innerHTML = `DATA: ${agora.toLocaleDateString('pt-BR')} | HORA: ${agora.toLocaleTimeString('pt-BR')}<br>IP: 177.128.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}<br>LOCAL: SÃO BENTO - PB<br>NOME: <b>${n}</b><br>EMAIL: <b>${e}</b>`;
+  dados.innerHTML = `DATA: <span class="destaque">${agora.toLocaleDateString('pt-BR')}</span> | HORA: <span class="destaque">${agora.toLocaleTimeString('pt-BR')}</span><br>IP: <span class="destaque">177.128.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}</span><br>LOCAL: <span class="destaque">SÃO BENTO - PB</span><br>NOME: <span class="destaque">${n}</span><br>E-MAIL: <span class="destaque">${e}</span>`;
   nomespan.textContent = n;
 
   const proc = [];
-  for(let i=1;i<=1650;i++) proc.push(`[${i}/1650] VALIDANDO ${n}... OK`);
+  for(let i=1;i<=1650;i++){
+    const passos = [
+      `[${i}/1650] Consultando cadastro na PREFEITURA... OK`,
+      `[${i}/1650] Verificando residência... CONFIRMADO`,
+      `[${i}/1650] Validando inscrição... APROVADO`,
+      `[${i}/1650] Sincronizando sistema... CONCLUÍDO`
+    ];
+    proc.push(passos[Math.floor(Math.random()*passos.length)]);
+  }
   proc.push('','FINALIZANDO...');
 
   let i=0,j=0,t='';
   function rodar(){
     if(i>=proc.length){b1.style.width='100%';b2.style.width='100%';setTimeout(()=>{telav.style.display='none';telaf.style.display='flex';},2000);return;}
-    if(j<proc[i].length){t+=proc[i][j];log.innerText=t;j++;setTimeout(rodar,7);}
-    else{t+='\n';log.innerText=t;b1.style.width=Math.round((i/proc.length)*100)+'%';b2.style.width=Math.round((i/proc.length)*90)+'%';i++;j=0;setTimeout(rodar,65);}
+    if(j<proc[i].length){t+=proc[i][j];logs.innerText=t;j++;setTimeout(rodar,6);}
+    else{t+='\n';logs.innerText=t;b1.style.width=Math.round((i/proc.length)*100)+'%';b2.style.width=Math.round((i/proc.length)*90)+'%';i++;j=0;setTimeout(rodar,60);}
   }
   rodar();
 });
